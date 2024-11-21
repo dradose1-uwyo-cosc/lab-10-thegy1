@@ -4,7 +4,7 @@
 # Lab 10
 # Lab Section: 12
 # Sources, people worked with, help given to: N/A
-# Comments: Wasn't sure what to do with the rockyou file when we first opened the txt file
+# Comments: None
 
 #import modules you will need 
 
@@ -43,7 +43,7 @@ except FileNotFoundError:
 #   - You must use a try and except block.
 try:
     path = Path('hash')
-    hash = path.read_text().strip()
+    hash = path.read_text()
     cont2 = True
 except FileNotFoundError:
     print('File Not Found')
