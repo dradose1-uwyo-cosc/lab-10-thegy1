@@ -30,9 +30,10 @@ try:
     path1 = Path('rockyou.txt')
     rock = path1.read_text()
     hashed = get_hash(rock)
+    cont1 = True
 except FileNotFoundError:
     print('File Not Found')
-    hashed = False
+    cont1 = False
 
 # You will need to include a try-except-catch block in your code.
 # - The reading of files needs to occur in the try blocks.
@@ -43,9 +44,10 @@ except FileNotFoundError:
 try:
     path = Path('hash')
     hash = path.read_text().strip()
+    cont2 = True
 except FileNotFoundError:
     print('File Not Found')
-    hash = False
+    cont2 = False
 
 
 # Read in the passwords in `rockyou.txt`.
@@ -60,12 +62,14 @@ try:
 except FileNotFoundError:
     print('File Not Found')
 else:
-    for password in lines:
-        password = password.strip()
-        pass_hash = get_hash(password)
-        if pass_hash == hash:
-            print(f'Password is {password}')
-            break
-        else:
-            continue
-
+    if cont1 and cont2:
+        for password in lines:
+            password = password.strip()
+            pass_hash = get_hash(password)
+            if pass_hash == hash:
+                print(f'Password is {password}')
+                break
+            else:
+                continue
+    else:
+        print('Could not crack password')
